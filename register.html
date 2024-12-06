@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>注册</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        overflow: hidden;
+      }
+
+      body {
+        background-image: url("./static/image/Background.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-attachment: fixed;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        filter: brightness(1.2) contrast(1.1); /* 调整亮度和对比度，使背景更突出 */
+      }
+
+      /* 注册框样式 */
+      .register-box {
+        width: 400px;
+        background-color: rgba(
+          255,
+          255,
+          255,
+          0.85
+        ); /* 增强透明度，背景更明亮 */
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+        box-sizing: border-box; /* 确保所有元素都计算在内 */
+      }
+
+      .register-box h2 {
+        font-size: 24px;
+        font-weight: bold;
+        color: #333;
+      }
+
+      /* 输入框容器 */
+      .input-container {
+        position: relative;
+        width: 100%;
+      }
+
+      /* 输入框样式 */
+      .register-box input {
+        width: 100%;
+        padding: 10px;
+        padding-right: 50px; /* 给右侧留出空间容纳提示文字 */
+        margin-bottom: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+        box-sizing: border-box; /* 确保输入框计算包括内边距和边框 */
+      }
+
+      /* 右侧提示文字样式 */
+      .input-hint {
+        position: absolute;
+        right: 10px; /* 在右侧位置 */
+        top: 50%;
+        transform: translateY(-50%); /* 垂直居中 */
+        font-size: 12px;
+        color: #777;
+        pointer-events: none; /* 禁止点击，避免干扰输入 */
+      }
+
+      .register-box button {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #ff6347;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        box-sizing: border-box; /* 让宽度计算包括内边距和边框 */
+      }
+
+      .register-box button:hover {
+        background-color: #e5533b;
+      }
+
+      .register-box a {
+        text-decoration: none;
+        color: #ff6347;
+        font-size: 14px;
+        margin-top: 10px;
+      }
+
+      .register-box a:hover {
+        color: #e5533b;
+      }
+
+      /* 修改后的跳过注册链接 */
+      .skip-register {
+        text-decoration: none;
+        color: #777;
+        font-size: 14px;
+        margin-top: 10px;
+        text-align: center;
+      }
+
+      .skip-register:hover {
+        color: #e5533b;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="register-box">
+      <h2>注册</h2>
+      <form action="index.html" method="POST">
+        <div class="input-container">
+          <input
+            type="text"
+            name="username"
+            placeholder="用户名"
+            required
+            id="username"
+          />
+          <span class="input-hint">nobody cares</span>
+        </div>
+        <div class="input-container">
+          <input
+            type="password"
+            name="password"
+            placeholder="密码"
+            required
+            id="password"
+          />
+          <span class="input-hint">everything but 123456</span>
+        </div>
+        <div class="input-container">
+          <input
+            type="email"
+            name="email"
+            placeholder="邮箱"
+            required
+            id="email"
+          />
+          <span class="input-hint">watching you👁️👁️</span>
+        </div>
+        <button type="submit">注册</button>
+      </form>
+      <a class="skip-register" href="index.html">跳过注册，直接进入</a>
+    </div>
+
+    <script>
+      // 获取所有的输入框和提示文字
+      const inputs = document.querySelectorAll(".register-box input");
+      inputs.forEach((input) => {
+        const hint = input.nextElementSibling; // 获取对应的提示文字
+        // 监听输入框的input事件
+        input.addEventListener("input", () => {
+          if (input.value) {
+            hint.style.display = "none"; // 如果有内容则隐藏提示文字
+          } else {
+            hint.style.display = "block"; // 如果没有内容则显示提示文字
+          }
+        });
+
+        // 页面加载时检查输入框内容
+        if (input.value) {
+          hint.style.display = "none"; // 如果输入框已经有内容则隐藏提示
+        }
+      });
+    </script>
+  </body>
+</html>

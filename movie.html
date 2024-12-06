@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>电影介绍</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        overflow: hidden;
+      }
+
+      body {
+        background-image: url("./static/image/Background.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-attachment: fixed;
+        margin: 0;
+        padding: 0;
+      }
+
+      .box {
+        width: 70%;
+        height: 100vh;
+        background-color: rgba(255, 255, 255, 0.3);
+        border-radius: 10px;
+        padding: 20px;
+        box-sizing: border-box;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 0;
+        overflow-y: auto;
+      }
+
+      ::-webkit-scrollbar {
+        display: none;
+      }
+
+      body {
+        overflow: hidden;
+      }
+
+      .menu-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 0;
+        width: 100%;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.6);
+      }
+
+      .site-name {
+        font-size: 28px;
+        font-weight: bold;
+        color: #97cdf6f8;
+        margin-left: 20px;
+        text-shadow: 2px 2px 4px rgba(27, 183, 42, 0.5);
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 20px;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: white;
+        font-size: 18px;
+        font-weight: bold;
+        transition: color 0.3s ease;
+        opacity: 0.5;
+      }
+
+      .nav-links a.active {
+        font-size: 22px;
+        color: #33befa;
+        transform: translateY(-5px);
+        opacity: 1;
+      }
+
+      .carousel {
+        height: 581px; /* 修改了高度为581px */
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+        margin-top: 40px;
+        border-radius: 10px;
+      }
+
+      .carousel-images {
+        display: flex;
+        transition: transform 1s ease-in-out;
+      }
+
+      .carousel-images img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .carousel-button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        font-size: 24px;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+      }
+
+      .prev {
+        left: 10px;
+      }
+
+      .next {
+        right: 10px;
+      }
+
+      .movie-intro {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        margin-top: 40px;
+      }
+
+      .movie-item {
+        display: flex;
+        gap: 20px;
+      }
+
+      .movie-item:nth-child(odd) {
+        flex-direction: row;
+      }
+
+      .movie-item:nth-child(even) {
+        flex-direction: row-reverse;
+      }
+
+      .movie-item .movie-image-wrapper {
+        position: relative;
+        width: 40%;
+      }
+
+      .movie-item img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border-radius: 10px;
+      }
+
+      .movie-item .text {
+        width: 55%;
+        color: white;
+      }
+
+      .movie-item h3 {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+
+      .movie-item p {
+        font-size: 18px;
+        line-height: 1.5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <div class="menu-bar">
+        <div class="site-name">Anime</div>
+        <div class="nav-links">
+          <a href="index.html" class="nav-item">首页</a>
+          <a href="person.html" class="nav-item">人物介绍</a>
+          <a href="#" class="nav-item active">电影介绍</a>
+          <a href="picture.html" class="nav-item">精彩照片</a>
+        </div>
+      </div>
+
+      <!-- 轮播图 -->
+      <div class="carousel">
+        <div class="carousel-images">
+          <img src="./static/image/Hal.jpg" alt="哈尔的移动城堡" />
+          <img src="./static/image/Cat.jpg" alt="龙猫" />
+          <img src="./static/image/WindValley.jpg" alt="风之谷" />
+          <img src="./static/image/Witch.jpg" alt="魔女宅急便" />
+          <img src="./static/image/GhostPrincess.jpg" alt="幽灵公主" />
+          <img src="./static/image/SpiritedAway.jpg" alt="千与千寻" />
+          <img src="./static/image/SkyCity.jpg" alt="天空之城" />
+          <img src="./static/image/Wind.jpg" alt="起风了" />
+          <img src="./static/image/RedPig.jpg" alt="红猪" />
+        </div>
+        <button class="carousel-button prev" onclick="prevImage()">
+          &#10094;
+        </button>
+        <button class="carousel-button next" onclick="nextImage()">
+          &#10095;
+        </button>
+      </div>
+
+      <div class="movie-intro">
+        <!-- 电影1 -->
+        <div class="movie-item">
+          <div class="movie-image-wrapper">
+            <a
+              href="https://pan.baidu.com/s/1Y--ZzNjptOyvCPIQAt9wtA?pwd=APEX"
+              target="_blank"
+            >
+              <img src="./static/image/Hal.jpg" alt="哈尔的移动城堡" />
+            </a>
+          </div>
+          <div class="text">
+            <h3>1. 哈尔的移动城堡</h3>
+            <p>
+              《哈尔的移动城堡》是宫崎骏执导的动画电影，改编自英国作家戴安娜·温尼·琼斯的同名小说。电影讲述了一个年轻女孩苏
+              Sophie 被巫女变成老妇人后，跟随一位神秘的流浪魔法师哈尔的故事。
+            </p>
+          </div>
+        </div>
+
+        <!-- 电影2 -->
+        <div class="movie-item">
+          <div class="movie-image-wrapper">
+            <a
+              href="https://pan.baidu.com/s/1Y--ZzNjptOyvCPIQAt9wtA?pwd=APEX"
+              target="_blank"
+            >
+              <img src="./static/image/Cat.jpg" alt="龙猫" />
+            </a>
+          </div>
+          <div class="text">
+            <h3>2. 龙猫</h3>
+            <p>
+              《龙猫》是宫崎骏执导的动画电影，讲述了两个小女孩和一个神秘生物龙猫的故事。影片以其温馨的故事和细腻的画面，成为日本动画的经典之作。
+            </p>
+          </div>
+        </div>
+
+        <!-- 电影3 -->
+        <div class="movie-item">
+          <div class="movie-image-wrapper">
+            <a
+              href="https://pan.baidu.com/s/1Y--ZzNjptOyvCPIQAt9wtA?pwd=APEX"
+              target="_blank"
+            >
+              <img src="./static/image/WindValley.jpg" alt="风之谷" />
+            </a>
+          </div>
+          <div class="text">
+            <h3>3. 风之谷</h3>
+            <p>
+              《风之谷》是宫崎骏的第一部长篇动画电影，讲述了一个名为娜乌西卡的公主与虫子世界的故事。影片探索了环境保护和人类与自然的关系。
+            </p>
+          </div>
+        </div>
+
+        <!-- 电影4 -->
+        <div class="movie-item">
+          <div class="movie-image-wrapper">
+            <a
+              href="https://pan.baidu.com/s/1Y--ZzNjptOyvCPIQAt9wtA?pwd=APEX"
+              target="_blank"
+            >
+              <img src="./static/image/Witch.jpg" alt="魔女宅急便" />
+            </a>
+          </div>
+          <div class="text">
+            <h3>4. 魔女宅急便</h3>
+            <p>
+              《魔女宅急便》是宫崎骏执导的动画电影，改编自角野荣子创作的同名小说。讲述了年轻的魔女琪琪离开家乡，在城市里独立生活并开设快递业务的故事。
+            </p>
+          </div>
+        </div>
+
+        <!-- 电影5 -->
+        <div class="movie-item">
+          <div class="movie-image-wrapper">
+            <a
+              href="https://pan.baidu.com/s/1Y--ZzNjptOyvCPIQAt9wtA?pwd=APEX"
+              target="_blank"
+            >
+              <img src="./static/image/GhostPrincess.jpg" alt="幽灵公主" />
+            </a>
+          </div>
+          <div class="text">
+            <h3>5. 幽灵公主</h3>
+            <p>
+              《幽灵公主》是宫崎骏执导的奇幻动画电影，讲述了人类与自然的冲突以及主角阿席达卡与幽灵公主萨尔的故事。影片深刻探讨了人与自然之间的复杂关系。
+            </p>
+          </div>
+        </div>
+
+        <!-- 电影6 -->
+        <div class="movie-item">
+          <div class="movie-image-wrapper">
+            <a
+              href="https://pan.baidu.com/s/1Y--ZzNjptOyvCPIQAt9wtA?pwd=APEX"
+              target="_blank"
+            >
+              <img src="./static/image/SpiritedAway.jpg" alt="千与千寻" />
+            </a>
+          </div>
+          <div class="text">
+            <h3>6. 千与千寻</h3>
+            <p>
+              《千与千寻》是宫崎骏执导的获奖动画电影，讲述了小女孩千寻在神秘世界中寻找父母的故事。电影探讨了成长、孤独和家庭的主题。
+            </p>
+          </div>
+        </div>
+
+        <!-- 电影7 -->
+        <div class="movie-item">
+          <div class="movie-image-wrapper">
+            <a
+              href="https://pan.baidu.com/s/1Y--ZzNjptOyvCPIQAt9wtA?pwd=APEX"
+              target="_blank"
+            >
+              <img src="./static/image/Hal.jpg" alt="哈尔的移动城堡" />
+            </a>
+          </div>
+          <div class="text">
+            <h3>7. 哈尔的移动城堡</h3>
+            <p>
+              《哈尔的移动城堡》是宫崎骏执导的动画电影，改编自英国作家戴安娜·温尼·琼斯的同名小说。电影讲述了一个年轻女孩苏
+              Sophie 被巫女变成老妇人后，跟随一位神秘的流浪魔法师哈尔的故事。
+            </p>
+          </div>
+        </div>
+
+        <!-- 电影8 -->
+        <div class="movie-item">
+          <div class="movie-image-wrapper">
+            <a
+              href="https://pan.baidu.com/s/1Y--ZzNjptOyvCPIQAt9wtA?pwd=APEX"
+              target="_blank"
+            >
+              <img src="./static/image/Wind.jpg" alt="起风了" />
+            </a>
+          </div>
+          <div class="text">
+            <h3>8. 起风了</h3>
+            <p>
+              《起风了》是宫崎骏执导的动画电影，讲述了日本飞行器设计师堀越二郎的故事。影片融合了爱情与梦想，以及对技术的热爱。
+            </p>
+          </div>
+        </div>
+
+        <!-- 电影9 -->
+        <div class="movie-item">
+          <div class="movie-image-wrapper">
+            <a
+              href="https://pan.baidu.com/s/1Y--ZzNjptOyvCPIQAt9wtA?pwd=APEX"
+              target="_blank"
+            >
+              <img src="./static/image/RedPig.jpg" alt="红猪" />
+            </a>
+          </div>
+          <div class="text">
+            <h3>9. 红猪</h3>
+            <p>
+              《红猪》是宫崎骏创作的动画作品，该片背景设定在二十世纪二十年代的意大利，讲述了被自己诅咒而变成猪的波鲁克打击空中劫匪，保护身边人的故事。
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      let currentIndex = 0;
+      const images = document.querySelectorAll(".carousel-images img");
+      const totalImages = images.length;
+
+      // 自动切换图片（每3秒切换一次）
+      setInterval(nextImage, 3000);
+
+      function nextImage() {
+        if (currentIndex < totalImages - 1) {
+          currentIndex++;
+        } else {
+          currentIndex = 0;
+        }
+        updateCarousel();
+      }
+
+      function prevImage() {
+        if (currentIndex > 0) {
+          currentIndex--;
+        } else {
+          currentIndex = totalImages - 1;
+        }
+        updateCarousel();
+      }
+
+      function updateCarousel() {
+        const carouselImages = document.querySelector(".carousel-images");
+        carouselImages.style.transform = `translateX(-${currentIndex * 100}%)`;
+      }
+    </script>
+  </body>
+</html>
